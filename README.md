@@ -1,5 +1,12 @@
 # Parameter optimisation technique using RL and Carla
 
+This paper proposes a Reinforcement Learning (RL) based scenario-based falsification method to search for a risky scenario in a pedestrian crossing traffic situation where a Collision Avoidance System(SUT) does not satisfy the requirement. The reward function for our RL approach is based on Intel's Responsibility Sensitive Safety(RSS), Euclidean distance, and distance to the collision.
+
+<p float="left">
+  <img src="https://github.com/chinitaberrio/scenario_based_falsification/blob/main/generated%20scenario%20videos/challenging%20scenario.gif" width="400" />
+  <img src="https://github.com/chinitaberrio/scenario_based_falsification/blob/main/generated%20scenario%20videos/non_challenging.gif" width="400" /> 
+</p>
+
 ## Steps to setup the containers
 
 * Build the docker image
