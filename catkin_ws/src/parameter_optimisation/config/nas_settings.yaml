@@ -1,0 +1,58 @@
+# Policy Gradient config
+nas_controller:
+    # Timesteps determines the input for different architecture type such as one to many, many to one etc.
+    # Here we are looking at one to many, hence timesteps = 1
+    time_steps: 1
+
+    # Features determines no.of features per time steps
+    # Here we are looking at feeding 4 feautures for now: vehicle position, no. of pedestrian, pedestrian postion, pedestrian longitudinal position
+    features: 5
+    output_dim: 5
+    batch_size: 1
+    learning_rate: 0.01
+    epochs: 4000
+    num_lstm: 32
+
+policy_gradient:
+    discount_factor: 0.99
+    gamma: 0.99 
+    alpha: 1e-4
+    exploration: 1.0
+    exploration_decay: 0.995
+    exploration_min: 0.01
+    exploration_hard_stop: 2000
+    update_every: 25 #episodes
+    update_exploration: 4 # assumption is that 1 = around 100 episodes of exploration and 3 = 300 episodes.
+    
+rewards:
+    negative_actions: -1
+    success_scenario: -1
+    failure_scenario: 1
+    reward_extra: 0.1
+    collision: 0.25
+    normalise_range: 
+        min: 1
+        max: 10
+    reward_range: 
+        min: -0.01
+        max: 0.01
+    normalise_rss_range: 
+        min: 1
+        max: 10
+    reward_rss_range:
+        min: -0.01
+        max: 0.01
+    reward_rss_threshold: 5
+    normalise_ttc_range: 
+        min: 0
+        max: 30
+    reward_ttc_range:
+        min: -0.01
+        max: 0.01
+    
+
+    
+
+
+
+

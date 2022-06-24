@@ -1,0 +1,36 @@
+# General config
+
+connect:
+
+  # The network connection for the python connection to CARLA
+  host: localhost
+  port: 2000
+  town: Town05
+
+# Config for plotting the result 
+plot:
+  #save_plot_data: 25
+  path_to_plot_data: "/parameter_optimisation_rl/save_dir/plot_data/plot_{}.txt"
+
+resume:
+  save_model: 100
+  path_to_saved_model : "/parameter_optimisation_rl/save_dir/saved_model.h5"
+  path_to_all_models : "/parameter_optimisation_rl/save_dir/model/saved_model_{}.h5"
+  path_to_data_json : "/parameter_optimisation_rl/save_dir/data.txt"
+
+do_not_delete_from_bridge_actors: 
+  - "EgoVehicle"
+  - "ObjectSensor"
+  - "Lidar"
+  - "Walker"
+  - "ObjectSensor"
+  - "CollisionSensor"
+
+carla_settings:
+  synchronous_mode: true
+  fixed_delta_seconds: 0.1
+  vehicle_control_command: true
+
+stop_looping: false
+
+

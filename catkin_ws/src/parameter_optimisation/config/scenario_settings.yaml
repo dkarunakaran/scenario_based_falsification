@@ -1,0 +1,93 @@
+# config related to scenario generation
+scenario:
+  scenario_end:
+    ego_distance: 30
+    max_time: 30
+
+parameter_config:
+  VUT:
+    initial_spawn_point: 223
+    name: "ego_vehicle"
+    model: "vehicle.bmw.grandtourer"
+  pedestrian:
+    initial_spawn_point: 198
+    walker_type: "walker.pedestrian.0004"
+
+# Parameter range config
+parameter_range:
+
+  # Config for Vehicle Under Test
+  VUT:
+    count: 1
+    speed:
+      min: 0
+      max: 10
+    logitudinal_pos:
+      min: 80
+      max: 100
+    later_pos:
+      min: 0
+      max: 1
+
+  # Config for Vehicle  
+  vehicle:
+    count: 2
+    speed:
+      min: 0
+      max: 10
+    logitudinal_pos:
+      min: 0
+      max: 100
+    later_pos:
+      min: 0
+      max: 1
+
+  # Config for pedestrian
+  pedestrian:
+    count: 1exit
+    speed:
+      min: 0
+      max: 5
+    logitudinal_pos:
+      min: 0
+      max: 20
+    later_pos:
+      min: 0
+      max: 5
+    trajectory:
+
+      starting_speed_upto: 5
+      timesteps: 500
+      speed_upper_limit: 0.25
+      change_speed_timesteps: 5
+
+      # Chandra, S. and Bharti, A.K., 2013. Speed distribution curves for pedestrians during walking and crossing. 
+      # Procedia-Social and Behavioral Sciences, 104, pp.660-667.
+      # As per the paper, distribution is Normally distributed and we need below values to construct normal distribution
+      speed_distribution:
+        mean: 1.46
+        SD: 0.24
+        size: 
+          - 25
+
+      # Based on the paper:  Liu, M., Zeng, W., Chen, P. and Wu, X., 2017. 
+      # A microscopic simulation model for pedestrian-pedestrian and pedestrian-vehicle interactions at crosswalks. PLoS one, 12(7).
+      # As per the paper, distribution is Normally distributed, but using unform distribution and we need below values to construct uniform distribution
+      acceleration_distribution:
+        low: 0
+        high: 0.1
+        size:
+          - 10
+
+  # Config for measurement error or sensor noise
+  measurement_error:
+    lidar:
+      min: 0
+      max: 5
+
+  #Config for weather parameter
+  weather:
+    weather_distribution:
+      low: 0
+      high: 14
+      size: 10
